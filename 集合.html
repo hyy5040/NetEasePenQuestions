@@ -6,5 +6,59 @@
 	</head>
 	<body>
 	</body>
-	<script src="js/集合.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+	function set(w,x,y,z) {
+	
+	var w=w,x=x,y=y,z=z;
+	var jw = w>=1&&w<=x;
+	var jx = x>=1&&x<=100;
+	var jy = y>=1&&y<=z;
+	var jz = z>=1&&z<=100;
+	//获取输入的数以及判断输入的合法性
+	if(jw&&jx&&jy&&jz){
+		var p=[];
+		var q=[];
+		var finalArray=[];
+		for(var i=0;i<=x;i++){
+			if(w<=x){
+				p.push(w);			
+			w++;
+			}else{
+				break;
+			}						
+		}
+		for(var i=0;i<=z;i++){
+			if(y<=z){
+				q.push(y);			
+			y++;
+			}else{
+				break;
+			} 
+		}
+		//比较数组的大小
+		var small =(p.length<=q.length?p:q);
+		var big =(p.length<=q.length?q:p);
+		var len_big=big.length;
+		var len_small=small.length;
+		//删除相同的元素 
+		for(var i=0;i<len_small;i++){
+			for(var j=0;j<len_big;j++){
+				if(big.indexOf(small[i])==-1){
+					big.push(small[i]);	
+					big.sort();
+				}
+				else{
+					continue;
+				}
+			}
+			
+		}  
+		return big.length;
+	}else{ 
+		return "erro:你的输入有误，请检查";
+	}
+} 
+var i = set(1,10,5,13);
+console.log(i);
+	</script>
 </html>
