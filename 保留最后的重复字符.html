@@ -6,5 +6,24 @@
 	</head>
 	<body>
 	</body>
-	<script src="js/保留最后的重复字符.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript" charset="utf-8">
+	function saveLastElement(anyString){
+	var str = new String(anyString);
+	var revArray = str.split("").reverse();
+	var fnlArray = [];
+	for(var i=0;i<revArray.length;i++){
+		if(revArray[i]==" "){
+			fnlArray.push(" ");
+		}
+		else if(fnlArray.indexOf(revArray[i])==-1){
+			fnlArray.push(revArray[i]);
+			console.log(fnlArray);	
+		}
+	}	
+	var sortArray = fnlArray.reverse();
+	return sortArray.join("");
+	}
+	var i = saveLastElement("any String h");
+	console.log(i);
+	</script>
 </html>
